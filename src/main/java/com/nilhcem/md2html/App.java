@@ -27,6 +27,30 @@ public final class App {
 	 */
 	public static void main(String[] args) {
 		try {
+			int idxDir = -1;
+			for(int i=0; i<args.length; i++){
+				if(args[i].equals("-d")){
+					idxDir = i+1;
+				}
+				//System.out.println(args[i]);
+			}
+			
+			if(idxDir>0){
+				try {
+					File dir = new File(args[idxDir]);
+					//System.out.println(dir.getAbsolutePath());
+					if(!dir.isDirectory()){
+						System.out.println(args[idxDir] + " must be dir.");
+					}else{
+						DoDir.doDir(dir);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return;
+			}
+			
+			
 			ArgsParser params = new ArgsParser();
 			params.checkArgs(args);
 
