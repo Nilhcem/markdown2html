@@ -24,7 +24,7 @@ Usage
 
 ### Command line version ###
 
-`java -jar Markdown2HTML.jar markdownFile [- header headerFile.html] [-footer footerFile.html] [-out [file.html]]`
+`java -jar Markdown2HTML.jar markdownFile [- header headerFile.html] [-footer footerFile.html] [-out [file.html]] [-d [directory]]`
 
 #### Options for the command line version ####
 
@@ -36,7 +36,7 @@ Its content will be appended to the converted `markdownFile` file.
 - `-out`: enter this to specify that the program should create a new file
 which contains the same name as the `markdownFile`, with the .html extension.
 - `-out file.html`: enter this to specify the name of the converted file.
-
+- `-d directory`: enter this to specify the directory of the converted files.
 
 GUI Screenshot
 --------------
