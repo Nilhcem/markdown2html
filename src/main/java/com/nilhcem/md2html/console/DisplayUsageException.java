@@ -14,6 +14,6 @@ public final class DisplayUsageException extends Exception {
 	 */
 	@Override
 	public String getMessage() {
-		return "usage: java -jar Markdown2HTML.jar [markdownFile] [- header headerFile.html] [-footer footerFile.html] [-out [file.html]]";
+		return "usage: java -jar Markdown2HTML.jar [markdownFile] [- header headerFile.html] [-footer footerFile.html] [-out [file.html]]  [-d [directory]]";
 	}
 }
