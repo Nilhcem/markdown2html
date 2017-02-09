@@ -41,7 +41,7 @@ which contains the same name as the `markdownFile`, with the .html extension.
 GUI Screenshot
 --------------
 
-<img src="http://nilhcem.github.com/screenshots/markdown2html.png" width="814" height="564" />
+<img src="https://raw.githubusercontent.com/Nilhcem/markdown2html/master/screenshot.png" width="814" height="564" />
 
 
 Building it
