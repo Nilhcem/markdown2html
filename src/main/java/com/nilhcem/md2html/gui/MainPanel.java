@@ -39,4 +39,8 @@ public final class MainPanel {
 	public JPanel get() {
 		return mainPanel;
 	}
+	
+	public void setContent(String text){
+		input.setText(text);
+	}
 }

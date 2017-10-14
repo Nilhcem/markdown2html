@@ -44,4 +44,11 @@ public final class InputPane extends Observable {
 	public JScrollPane get() {
 		return inputPane;
 	}
+	
+	public void setText(String text){
+		inputTextArea.setText(text);
+		setChanged();
+		notifyObservers(inputTextArea.getText());
+		inputTextArea.setCaretPosition(0);
+	}
 }
