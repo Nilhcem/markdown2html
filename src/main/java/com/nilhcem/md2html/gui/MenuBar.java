@@ -1,8 +1,12 @@
 package com.nilhcem.md2html.gui;
 
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Observable;
+
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -16,11 +20,15 @@ import javax.swing.JOptionPane;
  */
 public final class MenuBar extends Observable {
 	private final JMenuBar menuBar = new JMenuBar();
+	private final JFileChooser fc = new JFileChooser();
+	private MainFrame mainFrame;
 
 	/**
 	 * Creates the menu bar and the different menus (file / edit / help).
+	 * @param mainFrame 
 	 */
-	public MenuBar() {
+	public MenuBar(MainFrame mainFrame) {
+		this.mainFrame = mainFrame;
 		menuBar.add(createFileMenu());
 		menuBar.add(createHelpMenu());
 	}
@@ -45,6 +53,20 @@ public final class MenuBar extends Observable {
 	private JMenu createFileMenu() {
 		JMenu fileMenu = new JMenu("File");
 		fileMenu.setMnemonic('F');
+		
+		JMenuItem open = new JMenuItem("Open");
+		open.setMnemonic('o');
+		open.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int returnVal = fc.showOpenDialog(menuBar.getParent());
+
+		        if (returnVal == JFileChooser.APPROVE_OPTION) {
+		            File file = fc.getSelectedFile();
+		            mainFrame.load(file);
+		        } 
+			}
+		});
 
 		JMenuItem exit = new JMenuItem("Exit");
 		exit.setMnemonic('x');
@@ -55,6 +77,7 @@ public final class MenuBar extends Observable {
 			}
 		});
 
+		fileMenu.add(open);
 		fileMenu.add(exit);
 		return fileMenu;
 	}

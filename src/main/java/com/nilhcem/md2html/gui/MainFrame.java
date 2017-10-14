@@ -1,7 +1,13 @@
 package com.nilhcem.md2html.gui;
 
 import java.awt.Dimension;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
 import javax.swing.JFrame;
+
+import org.apache.commons.io.FileUtils;
 
 /**
  * Provides the main window of the application.
@@ -11,7 +17,7 @@ import javax.swing.JFrame;
  */
 public final class MainFrame {
 	private final JFrame mainFrame = new JFrame("Markdown editor");
-	private final MenuBar menu = new MenuBar();
+	private final MenuBar menu = new MenuBar(this);
 	private final MainPanel panel = new MainPanel();
 
 	/**
@@ -28,5 +34,15 @@ public final class MainFrame {
 		mainFrame.getContentPane().add(panel.get());
 		mainFrame.setLocationRelativeTo(null); // Center main frame
 		mainFrame.setVisible(true);
+	}
+
+	public void load(File file) {
+		String text;
+		try {
+			text = FileUtils.readFileToString(file);
+			panel.setContent(text);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

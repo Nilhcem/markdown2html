@@ -2,7 +2,7 @@ Markdown2HTML
 =============
 
 An extremely simple Markdown to HTML converter,
-powered by [MarkdownJ](http://code.google.com/p/markdownj/).
+powered by [MarkdownJ](https://github.com/myabc/markdownj).
 
 Available in command line and GUI mode.
 
